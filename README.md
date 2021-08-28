@@ -1,4 +1,4 @@
-# vtt2txt2docx
+# 📃 vtt2txt2docx
 This Python script generates cleaned up versions of .txt and .docx files from an MS Stream .vtt caption file.  It strips out content such as lines beginning with WEBVTT, NOTE, a timestamp, or a reference such as 3dc72631-b191, leaving only the text generated from the speaker's voice.
 
 ## 🤔 Rationale
@@ -14,7 +14,7 @@ Install these via pip:
 
 `pip install python-docx cowsay`
 
-## ⚙️ Usage
+## ⌨️ Usage
 * `python vtt2txt2docx.py fileYouWantToConvert.vtt`
 
 ## 🔨 Testing Notes
