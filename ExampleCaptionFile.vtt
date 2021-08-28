@@ -1,0 +1,18 @@
+WEBVTT
+
+NOTE duration:"00:57:12.6210000"
+
+NOTE language:en-us
+
+NOTE Confidence: 0.775222539901733
+
+7e9b454b-46ae-4598-b06e-5942f029e5bb
+00:00:00.030 --> 00:00:04.482
+Hello. This is an example captions file generated
+
+NOTE Confidence: 0.775222539901733
+
+2d3364a7-30eb-4ffb-ad79-573c35fb704d
+00:00:04.482 --> 00:00:07.821
+by MS Stream.  It is used to test the
+Python script
