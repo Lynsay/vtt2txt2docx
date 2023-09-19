@@ -4,9 +4,11 @@
 	
 	Date: 27th August 2021
 
+	Updated: 19th September 2023
+
 	Name: vtt2txt2docx.py
 
-	Desc: Generate cleaned up .txt and .docx files from an MS Stream .vtt caption file- helpful for preparing scripts when new recordings are required for a lecture.
+	Desc: Generate cleaned up .txt and .docx files from an MS Stream .vtt caption file- helpful for preparing scripts when new recordings are required for a lecture. As of September 2023, the script now handles .srt files.
 '''
 
 #Imports required
@@ -17,17 +19,17 @@ import pathlib
 import os
 import cowsay #for the ascii art
 
-#Process the original .vtt file
+#Process the original .vtt or .srt file
 def processTheFile():
 	try:
 		#pass in file name via Terminal
 		with open(sys.argv[1], "r") as f:
 			
-			#get file extension and check it's a .vtt
+			#get file extension and check it's a .vtt or .srt
 			fileExtension=pathlib.Path(sys.argv[1]).suffix
 
-			if fileExtension == ".vtt":
-				print("This is a .vtt file - proceeding with .vtt to .txt conversion")
+			if fileExtension == ".vtt" or fileExtension == ".srt":
+				print("This is a valid file - proceeding with .txt conversion")
 
 				#grab the name of the existing file- this will be used for new files generated
 				existingFileName=os.path.splitext(sys.argv[1])[0]
@@ -35,7 +37,7 @@ def processTheFile():
 				with open(existingFileName+".txt", "w", encoding='utf-8') as createNew:
 					for line in f:
 						#If a MS Caption line starts with WEBVTT, NOTE, a timestamp, or a reference such as 3dc72631-b191-, do not include this in the new file generated.
-						if line.startswith("WEBVTT") or line.startswith("NOTE ") or re.match("^[0-9][0-9]:",line) or re.match("^[A-Za-z0-9]{8,8}-",line):
+						if line.startswith("WEBVTT") or line.startswith("NOTE ") or re.match("^[0-9][0-9]:",line) or re.match("^[A-Za-z0-9]{8,8}-",line) or line[0].isdigit():
 							continue
 						else:
 							if re.match(r'^\s*$', line):
